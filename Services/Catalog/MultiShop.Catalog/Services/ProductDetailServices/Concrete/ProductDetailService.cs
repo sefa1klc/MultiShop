@@ -14,7 +14,9 @@ public class ProductDetailService :
     public ProductDetailService(IDatabaseSettings databaseSettings, IMapper mapper) 
         : base(new MongoClient(databaseSettings.ConnectionString)
             .GetDatabase(databaseSettings.DatabaseName)
-            .GetCollection<ProductDetail>(databaseSettings.ProductDetailCollectionName), mapper)
+            .GetCollection<ProductDetail>(databaseSettings.ProductDetailCollectionName), mapper,
+            "ProductDetailID"
+            )
     {
     }
 }

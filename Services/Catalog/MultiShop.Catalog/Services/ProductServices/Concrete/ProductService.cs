@@ -13,8 +13,10 @@ public class ProductService :
 {
     public ProductService(IDatabaseSettings databaseSettings, IMapper mapper) 
         : base(new MongoClient(databaseSettings.ConnectionString)
-            .GetDatabase(databaseSettings.DatabaseName)
-            .GetCollection<Product>(databaseSettings.ProductCollectionName), mapper)
+                .GetDatabase(databaseSettings.DatabaseName)
+                .GetCollection<Product>(databaseSettings.ProductCollectionName),
+            mapper,
+            "ProductID") 
     {
     }
 }

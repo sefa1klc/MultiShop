@@ -14,7 +14,9 @@ public class CategoryService : GenericService<Category, CreateCategoryDto, Updat
     public CategoryService(IDatabaseSettings databaseSettings, IMapper mapper) 
         : base(new MongoClient(databaseSettings.ConnectionString)
             .GetDatabase(databaseSettings.DatabaseName)
-            .GetCollection<Category>(databaseSettings.CategoryCollectionName), mapper)
+            .GetCollection<Category>(databaseSettings.CategoryCollectionName), mapper,
+            "CategoryID"
+            )
     {
     }
 }

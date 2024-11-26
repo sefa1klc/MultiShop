@@ -14,7 +14,9 @@ public class ProductImageService :
     public ProductImageService(IDatabaseSettings databaseSettings, IMapper mapper) 
         : base(new MongoClient(databaseSettings.ConnectionString)
             .GetDatabase(databaseSettings.DatabaseName)
-            .GetCollection<ProductImage>(databaseSettings.ProductImageCollectionName), mapper)
+            .GetCollection<ProductImage>(databaseSettings.ProductImageCollectionName), mapper,
+            "ProductImageID"
+            )
     {
     }
 }
